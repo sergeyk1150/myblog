@@ -9,9 +9,9 @@ async function addComment(postId, comment) {
   return newComment;
 }
 //delete
-async function deleteComent(postId, commentId) {
+async function deleteComment(postId, commentId) {
   await Comment.deleteOne({ _id: commentId });
   await Post.findByIdAndUpdate(postId, { $pull: { comments: commentId } });
 }
 
-module.exports = { addComment, deleteComent };
+module.exports = { addComment, deleteComment };
